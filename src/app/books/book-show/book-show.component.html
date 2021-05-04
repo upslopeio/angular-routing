@@ -1,0 +1,13 @@
+<h2>Books: {{book?.title || "loading..."}}</h2>
+
+<p>
+  ISBN: {{book?.id}}
+</p>
+
+<div class="todo">Link to <code>nextBook()</code> (if there is one)</div>
+
+<a [routerLink]="['/books', nextBook()?.id]" *ngIf="nextBook()">Next Book: {{nextBook()?.title}} &rarr;</a>
+
+<div class="todo">Link to <code>previousBook()</code> (if there is one)</div>
+
+<a [routerLink]="['/books', previousBook()?.id]" *ngIf="previousBook()"> &larr; Previous Book: {{previousBook()?.title}}</a>

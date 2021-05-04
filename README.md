@@ -24,3 +24,51 @@ const routes: Routes = [
   },
 ];
 ```
+
+NOTE: Don't forget to import the component 😉
+
+## Link to a static route
+
+```html
+<a routerLink="terms-of-service">Terms of Service</a>
+```
+
+## Dynamic Path Parameters
+
+
+### Define a route with path parameters
+
+```typescript
+const routes: Routes = [
+  {
+    path: 'something/:someId',
+    component: SomeComponent
+  },
+];
+```
+
+### Access Route Params from a Component
+
+1. Inject ActivatedRoute
+1. Subscribe to changes in the paramMap
+
+```typescript
+constructor(private route: ActivatedRoute) {}
+
+ngOnInit(): void {
+  this.route.paramMap.subscribe(params => {
+      // here you can access the params defined in the route
+    params.get('someId');
+  });
+}
+```
+
+### Link to a route with a dynamic component
+
+1. Add the `routerLink` attribute
+1. Surround `[routerLink]` with square brackets
+1. Pass in an array
+
+```
+<a [routerLink]="['/something', someVariable]">A dynamic link</a>
+```

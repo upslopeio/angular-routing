@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+div.todo {
+  background: lightgoldenrodyellow;
+  padding: 0.5em;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+span.todo {
+  display: inline-block;
+  background: lightgoldenrodyellow;
+  padding: 0 0.3em;
+  font-weight: bold;
+}
+
+.router-outlet {
+  border: 1px solid #ccc;
+  padding: 1em;
+  background: #efefef;
+  margin: 1em 0;
+}

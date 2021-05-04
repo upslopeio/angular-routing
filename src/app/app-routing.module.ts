@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './static/about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './static/contact/contact.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { BookShowComponent } from './books/book-show/book-show.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,16 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  // TODO: define a route that maps /books => the BookListComponent
+  {
+    path: 'books',
+    component: BookListComponent
+  },
+  // TODO: define a route that maps /books/:bookId => the BookShowComponent
+  {
+    path: 'books/:bookId',
+    component: BookShowComponent
   },
 ];
 

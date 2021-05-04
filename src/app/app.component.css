@@ -1,0 +1,13 @@
+.todo {
+  background: lightgoldenrodyellow;
+  padding: 0.5em;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+.router-outlet {
+  border: 1px solid #ccc;
+  padding: 1em;
+  background: #efefef;
+  margin: 1em 0;
+}

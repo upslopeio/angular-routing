@@ -11,6 +11,7 @@ import { BookShowComponent } from './books/book-show/book-show.component';
 import { EmailListComponent } from './email/email-list/email-list.component';
 import { EmailShowComponent } from './email/email-show/email-show.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BookListComponent,
     BookShowComponent,
     EmailListComponent,
-    EmailShowComponent
+    EmailShowComponent,
+    MoviesListComponent
   ],
   imports: [
     BrowserModule,

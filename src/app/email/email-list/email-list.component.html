@@ -1,15 +1,15 @@
 <h2>Emails</h2>
 
-<div style="display: flex;  flex-direction: row;">
-  <div style="width: 25%; margin: 0.1em; padding: 0.3em;">
+<div class="row">
+  <div class="col-4">
     <div class="todo">Turn these into links</div>
-    <div *ngFor="let email of emails">
-      <div>
-        <a [routerLink]="['/emails', email.id]">{{email.subject}}</a>
-      </div>
+    <div class="list-group">
+      <a *ngFor="let email of emails" class="list-group-item" [routerLink]="['/emails', email.id]" routerLinkActive="active">
+        {{email.subject}}
+      </a>
     </div>
   </div>
-  <div style="width: 75%; margin: 0.1em; padding: 0.3em;">
+  <div class="col-8">
     <div class="todo">Add a router outlet here</div>
     <router-outlet></router-outlet>
   </div>

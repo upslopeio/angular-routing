@@ -69,6 +69,6 @@ ngOnInit(): void {
 1. Surround `[routerLink]` with square brackets
 1. Pass in an array
 
-```
+```html
 <a [routerLink]="['/something', someVariable]">A dynamic link</a>
 ```

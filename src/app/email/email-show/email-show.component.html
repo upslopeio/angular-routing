@@ -1,0 +1,15 @@
+<div style="margin-bottom: 1em;">
+  <strong>From:</strong> {{email?.from}}
+</div>
+
+<div style="margin-bottom: 1em;">
+  <strong>Subject:</strong> {{email?.subject}}
+</div>
+
+<div style="margin-bottom: 1em;">
+  <strong>Message:</strong>
+</div>
+
+<p *ngFor="let paragraph of email?.body?.split('\n')">
+  {{paragraph}}
+</p>

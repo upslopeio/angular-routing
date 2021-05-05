@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './static/contact/contact.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { BookShowComponent } from './books/book-show/book-show.component';
+import { EmailListComponent } from './email/email-list/email-list.component';
+import { EmailShowComponent } from './email/email-show/email-show.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,17 @@ const routes: Routes = [
   {
     path: 'books/:bookId',
     component: BookShowComponent
+  },
+  // TODO: define a route that maps /emails => the EmailListComponent
+  {
+    path: 'emails',
+    component: EmailListComponent,
+    children: [
+      {
+        path: ':emailId',
+        component: EmailShowComponent,
+      },
+    ]
   },
 ];
 

@@ -72,3 +72,41 @@ ngOnInit(): void {
 ```html
 <a [routerLink]="['/something', someVariable]">A dynamic link</a>
 ```
+
+## Child Routes
+
+### Define a child route
+
+```typescript
+const routes: Routes = [
+  {
+    path: 'list-of-things',
+    component: ListComponent,
+    children: [
+      {
+        path: ':thingId',
+        component: ShowComponent,
+      },
+    ]
+  },
+}
+```
+
+### Link to a child route
+
+Same as any dynamic route:
+
+```html
+<a [routerLink]="['/list-of-things', someVariable]">A dynamic link</a>
+```
+
+### Defining the router outlet
+
+When you nest a route, the parent component must define a router outlet.
+
+```html
+<div *ngFor="let thing of things">
+    <a [routerLink]="['/list-of-things', thing]">Link</a>
+</div>
+<router-outlet></router-outlet>
+```

@@ -16,44 +16,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   // TODO: define a route that maps /about => the AboutComponent
-  {
-    path: 'about',
-    component: AboutComponent
-  },
   // TODO: define a route that maps /contact => the ContactComponent
-  {
-    path: 'contact',
-    component: ContactComponent
-  },
   // TODO: define a route that maps /books => the BookListComponent
-  {
-    path: 'books',
-    component: BookListComponent
-  },
   // TODO: define a route that maps /books/:bookId => the BookShowComponent
-  {
-    path: 'books/:bookId',
-    component: BookShowComponent
-  },
   // TODO: define a route that maps /emails => the EmailListComponent
-  {
-    path: 'emails',
-    component: EmailListComponent,
-    children: [
-      {
-        path: ':emailId',
-        component: EmailShowComponent,
-      },
-    ]
-  },
-  // TODO: define a route that maps /movies => the MoviesListComponent
-  {
-    path: 'movies',
-    component: MoviesListComponent,
-    resolve: {
-      movies: MovieResolver
-    }
-  },
+  // TODO: define a child route that maps /emails/:emailId => the EmailShowComponent
+  // TODO: define a route that maps /movies => the MoviesListComponent with a resolver
 ];
 
 @NgModule({

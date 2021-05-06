@@ -1,5 +1,7 @@
 <h2>Books</h2>
 
+<div class="todo">Make the links below go to individual books</div>
+
 <div class="list-group">
-    <a *ngFor="let book of books" [routerLink]="['/books', book.id]" class="list-group-item">{{book.title}}</a>
+    <a *ngFor="let book of books" class="list-group-item">{{book.title}}</a>
 </div>

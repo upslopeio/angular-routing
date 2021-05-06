@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Book, BooksService } from '../books.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-show',
@@ -13,14 +12,14 @@ export class BookShowComponent implements OnInit {
   bookIndex = -1;
   books: Book[] = [];
 
-  constructor(private route: ActivatedRoute, private bookService: BooksService) {}
+  // TODO: inject the ActivatedRoute
+  constructor(private bookService: BooksService) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.books = this.bookService.getBooks();
-      this.bookIndex = this.bookService.getBooks().findIndex(book => book.id === params.get('bookId'));
-      this.book = this.books[this.bookIndex];
-    });
+    // TODO: figure out how to get the path from the ActivatedRoute
+    this.books = this.bookService.getBooks();
+    this.bookIndex = this.bookService.getBooks().findIndex(book => book.id === '???');
+    this.book = this.books[this.bookIndex];
   }
 
   nextBook(): Book | undefined {

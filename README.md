@@ -14,7 +14,8 @@ By the end of this lesson you should be able to:
 
 In `src/app/app-routing.module.ts` add a new object to the `routes` array:
 
-The following route will tell Angular to display the `TermsComponent` when you visit http://localhost:4200/terms-of-service
+The following route will tell Angular to display the `TermsComponent` when you
+visit http://localhost:4200/terms-of-service
 
 ```typescript
 const routes: Routes = [
@@ -35,7 +36,6 @@ NOTE: Don't forget to import the component 😉
 
 ## Dynamic Path Parameters
 
-
 ### Define a route with path parameters
 
 ```typescript
@@ -53,11 +53,17 @@ const routes: Routes = [
 1. Subscribe to changes in the paramMap
 
 ```typescript
-constructor(private route: ActivatedRoute) {}
+constructor(private
+route: ActivatedRoute
+)
+{
+}
 
-ngOnInit(): void {
+ngOnInit()
+:
+void {
   this.route.paramMap.subscribe(params => {
-      // here you can access the params defined in the route
+    // here you can access the params defined in the route
     params.get('someId');
   });
 }
@@ -105,8 +111,61 @@ Same as any dynamic route:
 When you nest a route, the parent component must define a router outlet.
 
 ```html
+
 <div *ngFor="let thing of things">
-    <a [routerLink]="['/list-of-things', thing]">Link</a>
+  <a [routerLink]="['/list-of-things', thing]">Link</a>
 </div>
 <router-outlet></router-outlet>
 ```
+
+## Active Links
+
+```html
+<a routerLinkActive="active" routerLink="/something">Somewhere</a>
+```
+
+## Resolvers
+
+1. First, generate a resolver:
+    ```
+    ng generate resolver name
+    ```
+
+1. Next, change the `implements` and the return type of `resolve` to be the correct value (in this case, `Person[]`).
+1. Then inject the service you want and return the correct value:
+    ```typescript
+    export class PersonResolver implements Resolve<Person[]> {
+      // inject your real service
+      constructor(private personService: PersonService) {}
+    
+      resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Person[]> {
+        return this.personService.findAll(); // replace with your real service call
+      }
+    }
+    ```
+1. Add the resolver to the route:
+    ```typescript
+    const routes: Routes = [
+      {
+        path: 'people',
+        component: PersonListComponent,
+        resolve: {
+          people: PersonResolver
+        }
+      },
+    ];
+    ```
+1. Access the data from the component:
+    ```typescript
+    export class PersonLIstComponent implements OnInit {
+      people: Person[] = [];
+      
+      // inject ActivatedRoute
+      constructor(private activatedRoute: ActivatedRoute) { }
+    
+      ngOnInit(): void {
+        // get data from the route snapshot
+        this.people = this.activatedRoute.snapshot.data.people;
+      }
+    }
+    ```
